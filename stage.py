@@ -15,13 +15,12 @@ def _netdec_to_float(x):
 
 
 
-PORT = "COM5"   # adjust for your system, e.g. "/dev/ttyUSB0" on Linux
-BAUD = 19200
+PORT = "COM5"   # adjust for your system
+BAUD = 19200    # please check actual boudrate
 
 def send_command(ser, cmd):
     """
     Send a command string to the laser and print the response.
-    No retries, no infinite loop.
     """
     ser.write((cmd + "\r\n").encode("ascii"))
     resp = ser.read_until(b"\n").decode(errors="ignore").strip()
@@ -42,8 +41,7 @@ from Thorlabs.MotionControl.GenericMotorCLI import MotorDirection
 from System.Threading import Thread
 from System import Decimal
 
-# assume you have:
-# def send_command(ser, cmd): ...
+
 
 class WaveguideWriter:
     MIN_POSITION = 0.0
