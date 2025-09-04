@@ -32,7 +32,7 @@ wg.move_to_position_absolute('X', start)
 
 # 5) Write waveguide (PASS ser)  - here is the actul writing with the parameters defined
 wg.write_waveguide(
-    length=1000, width=500, step_size=100, repeat=6,
+    length=1000, width=5, step_size=1, repeat=4,
     speed=100, length_axis='X', offset=(100, 100, 100),
     ser=ser, scan_accel=5000, return_home=True
 )
